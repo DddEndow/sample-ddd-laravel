@@ -1,0 +1,2 @@
+CREATE DATABASE IF NOT EXISTS delivery_db;
+CREATE DATABASE IF NOT EXISTS delivery_db_test;

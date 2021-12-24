@@ -1,0 +1,36 @@
+version: "3.7"
+
+services:
+  delivery-api:
+    build:
+      context: .
+      dockerfile: ./delivery-api/Dockerfile
+      target: dev
+    volumes:
+      - ../delivery-api:/var/www/html
+      - ./delivery-api/php/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini
+    environment:
+      - APP_ENV=local
+    ports:
+      - 15280:80
+    depends_on:
+      - delivery-db
+#      - delivery-redis
+
+  delivery-db:
+    image: mysql:5.7
+    volumes:
+      - ./mysql/initdb.d:/docker-entrypoint-initdb.d
+      - ./mysql/conf.d:/etc/mysql/conf.d
+      - ../tmp/mysql:/var/log/mysql
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+      - MYSQL_DATABASE=delivery_db
+      - TZ=Asia/Tokyo
+    ports:
+      - 15306:3306
+
+#  delivery-redis:
+#    image: redis:5.0
+#    ports:
+#      - 6379:6379
