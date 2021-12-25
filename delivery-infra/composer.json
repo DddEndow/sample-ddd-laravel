@@ -26,7 +26,9 @@
     "scripts": {},
     "extra": {
         "laravel": {
-            "providers": []
+            "providers": [
+                "Delivery\\DeliveryInfra\\DeliveryInfraServiceProvider"
+            ]
         }
     },
     "config": {

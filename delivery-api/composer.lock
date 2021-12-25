@@ -2126,7 +2126,7 @@
             "dist": {
                 "type": "path",
                 "url": "../packages/delivery-infra",
-                "reference": "e1345ed5e9d1261541d2dc49c85bd0ce38d29632"
+                "reference": "56c24d7f6602773e0e134190411cb7e1a1f415b4"
             },
             "require": {
                 "illuminate/contracts": "^8.0",
@@ -2142,7 +2142,9 @@
             "type": "library",
             "extra": {
                 "laravel": {
-                    "providers": []
+                    "providers": [
+                        "Delivery\\DeliveryInfra\\DeliveryInfraServiceProvider"
+                    ]
                 }
             },
             "autoload": {
