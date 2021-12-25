@@ -19,7 +19,7 @@ class CreateDeliveriesTable extends Migration
             $table->string('delivery_id', 30)->comment('配送ID');
             $table->string('store_id', 30)->comment('店舗拠点ID');
             $table->dateTime('scheduled_delivery_datetime')->comment('配送予定日時');
-            $table->dateTime('delivery_completion_datetime')->comment('配送完了日時');
+            $table->dateTime('delivery_completion_datetime')->nullable()->comment('配送完了日時');
 
             $table->primary('delivery_id');
             $table->foreign('store_id', 'deliveries-stores')->references('hub_id')->on('stores');

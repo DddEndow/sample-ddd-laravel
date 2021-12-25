@@ -6,6 +6,7 @@ namespace Database\Factories;
 
 use Delivery\DeliveryInfra\OrderDetail;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Symfony\Component\Uid\Ulid;
 
 class OrderDetailFactory extends Factory
 {
@@ -25,6 +26,7 @@ class OrderDetailFactory extends Factory
     {
         return [
             'order_id' => OrderFactory::factory(),
+            'order_detail_id' => new Ulid(),
             'item_id' => ItemFactory::factory(),
             'production_id' => ProductionDetailFactory::factory(),
             'delivery_id' => DeliveryDetailFactory::factory(),

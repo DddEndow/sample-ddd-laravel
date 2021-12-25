@@ -18,7 +18,7 @@ class CreateDeliveryDetailsTable extends Migration
         Schema::create('delivery_details', function (Blueprint $table) {
             $table->string('delivery_id', 30)->comment('配送ID');
             $table->string('item_id', 30)->comment('商品ID');
-            $table->integer('quantity')->comment('発注数量');
+            $table->integer('quantity')->comment('配送数量');
 
             $table->primary(['delivery_id', 'item_id']);
             $table->foreign('item_id', 'delivery_details-items')->references('item_id')->on('items');
