@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Database\Factories;
+namespace Delivery\Infra\Database\Factories;
 
-use Delivery\DeliveryInfra\OrderDetail;
+use Delivery\Infra\Models\OrderDetail;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Symfony\Component\Uid\Ulid;
 

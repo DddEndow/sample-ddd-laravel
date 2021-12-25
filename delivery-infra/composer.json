@@ -16,20 +16,20 @@
     },
     "autoload": {
         "psr-4": {
-            "Delivery\\DeliveryInfra\\": "src/",
-            "Delivery\\DeliveryInfra\\Database\\Factories\\": "database/factories/"
+            "Delivery\\Infra\\": "src/",
+            "Delivery\\Infra\\Database\\Factories\\": "database/factories/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Delivery\\DeliveryInfra\\Tests\\": "tests/"
+            "Delivery\\Infra\\Tests\\": "tests/"
         }
     },
     "scripts": {},
     "extra": {
         "laravel": {
             "providers": [
-                "Delivery\\DeliveryInfra\\DeliveryInfraServiceProvider"
+                "Delivery\\Infra\\DeliveryInfraServiceProvider"
             ]
         }
     },

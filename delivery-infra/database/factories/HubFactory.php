@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Database\Factories;
+namespace Delivery\Infra\Database\Factories;
 
-use Delivery\DeliveryInfra\Hub;
+use Delivery\Infra\Models\Hub;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Symfony\Component\Uid\Ulid;
 

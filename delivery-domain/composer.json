@@ -13,12 +13,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Delivery\\DeliveryDomain\\": "src/"
+            "Delivery\\Domain\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Delivery\\DeliveryDomain\\Tests\\": "tests/"
+            "Delivery\\Domain\\Tests\\": "tests/"
         }
     },
     "scripts": {},

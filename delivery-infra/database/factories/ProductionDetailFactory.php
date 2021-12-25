@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Database\Factories;
+namespace Delivery\Infra\Database\Factories;
 
-use Delivery\DeliveryInfra\ProductionDetail;
+use Delivery\Infra\Models\ProductionDetail;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ProductionDetailFactory extends Factory
