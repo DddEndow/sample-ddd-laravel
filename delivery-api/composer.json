@@ -16,6 +16,7 @@
         "laravel/tinker": "^2.5",
         "packages/delivery-domain": "dev-master",
         "packages/delivery-infra": "dev-master",
+        "spatie/laravel-data": "^1.2",
         "symfony/uid": "^6.0"
     },
     "require-dev": {
