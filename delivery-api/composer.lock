@@ -2166,7 +2166,7 @@
             "dist": {
                 "type": "path",
                 "url": "../packages/delivery-infra",
-                "reference": "563ca52d99f1a76012d649bf73b535ad554410f3"
+                "reference": "14d192f73569de2684d42810bbffe8f9a7f784a3"
             },
             "require": {
                 "illuminate/contracts": "^8.0",
@@ -2184,19 +2184,19 @@
             "extra": {
                 "laravel": {
                     "providers": [
-                        "Delivery\\DeliveryInfra\\DeliveryInfraServiceProvider"
+                        "Delivery\\Infra\\DeliveryInfraServiceProvider"
                     ]
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "Delivery\\DeliveryInfra\\": "src/",
-                    "Delivery\\DeliveryInfra\\Database\\Factories\\": "database/factories/"
+                    "Delivery\\Infra\\": "src/",
+                    "Delivery\\Infra\\Database\\Factories\\": "database/factories/"
                 }
             },
             "autoload-dev": {
                 "psr-4": {
-                    "Delivery\\DeliveryInfra\\Tests\\": "tests/"
+                    "Delivery\\Infra\\Tests\\": "tests/"
                 }
             },
             "license": [
