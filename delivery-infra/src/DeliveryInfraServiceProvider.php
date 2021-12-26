@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Delivery\Delivery;
+namespace Delivery\Infra;
 
 use Illuminate\Support\ServiceProvider;
 
