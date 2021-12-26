@@ -9,6 +9,7 @@ services:
     volumes:
       - ../delivery-api:/var/www/html
       - ../delivery-infra:/var/www/packages/delivery-infra
+      - ../delivery-domain:/var/www/packages/delivery-domain
       - ./delivery-api/php/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini
     environment:
       - APP_ENV=local

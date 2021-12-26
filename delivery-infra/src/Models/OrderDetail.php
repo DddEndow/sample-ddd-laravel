@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Delivery\DeliveryInfra;
+namespace Delivery\Infra\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;

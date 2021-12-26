@@ -2,7 +2,10 @@
     "name": "laravel/laravel",
     "type": "project",
     "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "keywords": [
+        "framework",
+        "laravel"
+    ],
     "license": "MIT",
     "require": {
         "php": "^8.1",
@@ -11,6 +14,7 @@
         "laravel/framework": "^8.75",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
+        "packages/delivery-domain": "dev-master",
         "packages/delivery-infra": "dev-master",
         "symfony/uid": "^6.0"
     },
@@ -53,6 +57,10 @@
         {
             "type": "path",
             "url": "../packages/delivery-infra"
+        },
+        {
+            "type": "path",
+            "url": "../packages/delivery-domain"
         }
     ],
     "extra": {

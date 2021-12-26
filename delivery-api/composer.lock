@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3d0c9487aebcaf00890e2c2bdf7dcc1a",
+    "content-hash": "3cb799fd06eee85601d68933c3405320",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2121,12 +2121,52 @@
             "time": "2021-04-09T13:42:10+00:00"
         },
         {
+            "name": "packages/delivery-domain",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "../packages/delivery-domain",
+                "reference": "f4aa99586e4e25cb37c299349b130143374a2232"
+            },
+            "require": {
+                "php": "^8.1",
+                "symfony/uid": "^6.0"
+            },
+            "require-dev": {
+                "fakerphp/faker": "^1.9.1",
+                "mockery/mockery": "^1.4.4",
+                "phpunit/phpunit": "^9.5.8"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": []
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Delivery\\DeliveryDomain\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Delivery\\DeliveryDomain\\Tests\\": "tests/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
             "name": "packages/delivery-infra",
             "version": "dev-master",
             "dist": {
                 "type": "path",
                 "url": "../packages/delivery-infra",
-                "reference": "563ca52d99f1a76012d649bf73b535ad554410f3"
+                "reference": "14d192f73569de2684d42810bbffe8f9a7f784a3"
             },
             "require": {
                 "illuminate/contracts": "^8.0",
@@ -2144,19 +2184,19 @@
             "extra": {
                 "laravel": {
                     "providers": [
-                        "Delivery\\DeliveryInfra\\DeliveryInfraServiceProvider"
+                        "Delivery\\Infra\\DeliveryInfraServiceProvider"
                     ]
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "Delivery\\DeliveryInfra\\": "src/",
-                    "Delivery\\DeliveryInfra\\Database\\Factories\\": "database/factories/"
+                    "Delivery\\Infra\\": "src/",
+                    "Delivery\\Infra\\Database\\Factories\\": "database/factories/"
                 }
             },
             "autoload-dev": {
                 "psr-4": {
-                    "Delivery\\DeliveryInfra\\Tests\\": "tests/"
+                    "Delivery\\Infra\\Tests\\": "tests/"
                 }
             },
             "license": [
@@ -8077,6 +8117,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "packages/delivery-domain": 20,
         "packages/delivery-infra": 20
     },
     "prefer-stable": true,
