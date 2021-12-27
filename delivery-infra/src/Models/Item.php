@@ -22,6 +22,12 @@ class Item extends Model
         'price'
     ];
 
+    protected $casts = [
+        'item_id' => 'string',
+        'name' => 'string',
+        'price' => 'integer'
+    ];
+
     public function deliveryDetails(): HasMany
     {
         return $this->hasMany(DeliveryDetail::class, 'item_id', 'item_id');
