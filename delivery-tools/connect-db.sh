@@ -4,7 +4,7 @@ cd $(dirname $0) || exit
 cd ../delivery-docker || exit
 
 echo "+++++++++++++++++++++++++++++++++++++++"
-echo "Start to docker-compose exec delivery-api..."
+echo "Start to connect to database..."
 echo "+++++++++++++++++++++++++++++++++++++++"
 
-TMPDIR=/private$TMPDIR docker-compose exec api bash
+TMPDIR=/private$TMPDIR docker-compose exec db mysql -u root delivery_db

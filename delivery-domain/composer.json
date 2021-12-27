@@ -9,6 +9,7 @@
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
         "mockery/mockery": "^1.4.4",
+        "orchestra/testbench": "^6.23",
         "phpunit/phpunit": "^9.5.8"
     },
     "autoload": {
@@ -24,7 +25,9 @@
     "scripts": {},
     "extra": {
         "laravel": {
-            "providers": []
+            "providers": [
+                "Delivery\\Domain\\DeliveryDomainServiceProvider"
+            ]
         }
     },
     "config": {

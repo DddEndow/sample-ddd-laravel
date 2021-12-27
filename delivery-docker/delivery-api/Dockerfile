@@ -10,7 +10,7 @@ RUN git clone https://github.com/phpredis/phpredis.git /usr/src/php/ext/redis
 RUN docker-php-ext-install bcmath pdo_mysql gd zip redis
 
 # Install composer
-COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+COPY --from=composer:2.2.1 /usr/bin/composer /usr/bin/composer
 ENV COMPOSER_ALLOW_SUPERUSER 1
 
 # Apache Configuration

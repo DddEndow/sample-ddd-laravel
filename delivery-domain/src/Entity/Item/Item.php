@@ -4,11 +4,13 @@ declare(strict_types=1);
 
 namespace Delivery\Domain\Entity\Item;
 
+use Delivery\Domain\Entity\Shared\Name;
+
 class Item
 {
     private function __construct(
         public readonly ItemId $itemId,
-        public readonly string $name,
+        public readonly Name $name,
         public readonly int $price,
     ) {}
 
@@ -17,7 +19,7 @@ class Item
     // -------- static functions --------
 
     static public function create(
-        string $name,
+        Name $name,
         int $price,
     ): Item {
         return new Item(
@@ -28,12 +30,12 @@ class Item
     }
 
     static public function reconstruct(
-        string $itemId,
-        string $name,
+        ItemId $itemId,
+        Name $name,
         int $price,
     ): Item {
         return new Item(
-            itemId: ItemId::from($itemId),
+            itemId: $itemId,
             name: $name,
             price: $price,
         );

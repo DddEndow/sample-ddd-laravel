@@ -1,0 +1,22 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Delivery\Infra\Database\Seeders;
+
+use Illuminate\Database\Seeder;
+
+final class DeliveryInfraDatabaseSeeder extends Seeder
+{
+    /**
+     * Seed the application's database.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        $this->call([
+            ItemSeeder::class,
+        ]);
+    }
+}
