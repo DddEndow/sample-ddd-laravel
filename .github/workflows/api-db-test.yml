@@ -1,6 +1,6 @@
 on:
   pull_request:
-name: api-unit-test
+name: api-db-test
 jobs:
   CI:
     runs-on: ubuntu-latest
