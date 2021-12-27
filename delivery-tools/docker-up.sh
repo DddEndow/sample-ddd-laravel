@@ -4,7 +4,9 @@ cd $(dirname $0) || exit
 cd ../delivery-docker || exit
 
 if [ ! -e ../delivery-api/.env ]; then
-  TMPDIR=/private$TMPDIR cp delivery-api/.env.example delively-api/.env
+  cd ../delivery-api || exit
+  TMPDIR=/private$TMPDIR cp .env.example .env
+  cd ../delivery-docker || exit
 fi
 
 echo "+++++++++++++++++++++++++++++++++++++++"
