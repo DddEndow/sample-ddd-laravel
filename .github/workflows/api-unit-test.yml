@@ -11,9 +11,8 @@ jobs:
         run: sh -c "cd ./delivery-api; cp .env.example .env"
 
       - name: setup docker
-        run: |
-          cd ./delivery-docker
-          docker-compose up -d api
+        working-directory: ./delivery-docker
+        run: docker-compose up -d api
 
       - name: cache api vendor
         id: api-cache
@@ -25,11 +24,13 @@ jobs:
             ${{ runner.os }}-composer-
       - name: composer install
         if: steps.cache.outputs.cache-hit != 'true'
+        working-directory: ./delivery-docker
         run: docker-compose run --rm api composer install -n --prefer-dist
 
       - name: generate key
+        working-directory: ./delivery-docker
         run: docker-compose run --rm api php artisan key:generate
 
       - name: UnitTest
-        run: |
-          docker-compose run -e XDEBUG_MODE=off --rm api php artisan test
+        working-directory: ./delivery-docker
+        run: docker-compose run -e XDEBUG_MODE=off --rm api php artisan test
