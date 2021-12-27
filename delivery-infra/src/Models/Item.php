@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Delivery\Infra\Models;
 
+use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -47,5 +48,10 @@ class Item extends Model
     public function orderDetails(): HasMany
     {
         return $this->hasMany(OrderDetail::class, 'item_id', 'item_id');
+    }
+
+    protected static function newFactory(): Factory
+    {
+        return \Delivery\Infra\Database\Factories\ItemFactory::new();
     }
 }
