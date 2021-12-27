@@ -20,6 +20,7 @@ class Item extends Model
     protected $primaryKey = 'item_id';
     public $incrementing = false;
     protected $keyType = 'string';
+    public $timestamps = false;
 
     protected $fillable = [
         'item_id',
