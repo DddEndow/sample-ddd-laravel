@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c9eada137ea2c507eba48d96353244b7",
+    "content-hash": "1bd02040fc7185dc6a3cdac989e89c3f",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2122,11 +2122,11 @@
         },
         {
             "name": "packages/delivery-domain",
-            "version": "dev-master",
+            "version": "dev-main",
             "dist": {
                 "type": "path",
                 "url": "../packages/delivery-domain",
-                "reference": "d1c8b3a7958770c22f30a162cdb706cc8a292d55"
+                "reference": "72f9495f487cfe64939a2c15bbbb823a7e5ce072"
             },
             "require": {
                 "php": "^8.1",
@@ -2135,12 +2135,15 @@
             "require-dev": {
                 "fakerphp/faker": "^1.9.1",
                 "mockery/mockery": "^1.4.4",
+                "orchestra/testbench": "^6.23",
                 "phpunit/phpunit": "^9.5.8"
             },
             "type": "library",
             "extra": {
                 "laravel": {
-                    "providers": []
+                    "providers": [
+                        "Delivery\\Domain\\DeliveryDomainServiceProvider"
+                    ]
                 }
             },
             "autoload": {
@@ -2162,17 +2165,17 @@
         },
         {
             "name": "packages/delivery-infra",
-            "version": "dev-master",
+            "version": "dev-main",
             "dist": {
                 "type": "path",
                 "url": "../packages/delivery-infra",
-                "reference": "66e5726150bc1eda7f13ba70b4a45ff34d77e1a4"
+                "reference": "202085192b1e0e409af7a72022df92e93031537e"
             },
             "require": {
                 "illuminate/contracts": "^8.0",
                 "illuminate/database": "^8.0",
                 "illuminate/support": "^8.0",
-                "packages/delivery-domain": "dev-master",
+                "packages/delivery-domain": "dev-main",
                 "php": "^8.1",
                 "symfony/uid": "^6.0"
             },
@@ -6453,9 +6456,6 @@
             "require": {
                 "php": "^7.1 || ^8.0"
             },
-            "replace": {
-                "myclabs/deep-copy": "self.version"
-            },
             "require-dev": {
                 "doctrine/collections": "^1.0",
                 "doctrine/common": "^2.6",
@@ -8264,5 +8264,5 @@
         "php": "^8.1"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "2.2.0"
 }
