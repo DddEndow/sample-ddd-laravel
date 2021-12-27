@@ -23,7 +23,7 @@ class ItemEloquentRepositoryTest extends TestCase
         parent::setUp();
     }
 
-    public function test_example(): void
+    public function test_Itemの配列を全て取得できること(): void
     {
         // given:
         $item1 = $this->itemDataCreator->create(Name::of('item1 name'), 100);
