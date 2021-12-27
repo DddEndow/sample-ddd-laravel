@@ -2169,7 +2169,7 @@
             "dist": {
                 "type": "path",
                 "url": "../packages/delivery-infra",
-                "reference": "202085192b1e0e409af7a72022df92e93031537e"
+                "reference": "d7a7ea8e99a921773ececfa4ceb1b862ec6e1f4e"
             },
             "require": {
                 "illuminate/contracts": "^8.0",
@@ -2182,6 +2182,7 @@
             "require-dev": {
                 "fakerphp/faker": "^1.9.1",
                 "mockery/mockery": "^1.4.4",
+                "orchestra/testbench": "^6.23",
                 "phpunit/phpunit": "^9.5.8"
             },
             "type": "library",
