@@ -18,11 +18,11 @@ jobs:
         id: api-cache
         uses: actions/cache@v1
         with:
-          path: ./deliver-ap/ivendor
+          path: ./deliver-api/vendor
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
           restore-keys: |
             ${{ runner.os }}-composer-
-      - name: composer install
+      - name: api composer install
         if: steps.cache.outputs.cache-hit != 'true'
         working-directory: ./delivery-docker
         run: docker-compose run --rm api composer install -n --prefer-dist
@@ -31,6 +31,23 @@ jobs:
         working-directory: ./delivery-docker
         run: docker-compose run --rm api php artisan key:generate
 
-      - name: UnitTest
+      - name: api unit test
         working-directory: ./delivery-docker
         run: docker-compose run -e XDEBUG_MODE=off --rm api php artisan test
+
+      - name: cache domain vendor
+        id: domain-cache
+        uses: actions/cache@v1
+        with:
+          path: ./deliver-domain/vendor
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-composer-
+      - name: domain composer install
+        if: steps.cache.outputs.cache-hit != 'true'
+        working-directory: ./delivery-docker
+        run: docker-compose run --rm api bash -c "cd ../packages/delivery-domain && composer install -n --prefer-dist"
+
+      - name: domain unit test
+        working-directory: ./delivery-docker
+        run: ddocker-compose run --rm api bash -c "cd ../packages/delivery-domain && ./vendor/bin/phpunit --testdox"
