@@ -50,4 +50,4 @@ jobs:
 
       - name: domain unit test
         working-directory: ./delivery-docker
-        run: ddocker-compose run --rm api bash -c "cd ../packages/delivery-domain && ./vendor/bin/phpunit --testdox"
+        run: docker-compose run --rm api bash -c "cd ../packages/delivery-domain && ./vendor/bin/phpunit --testdox"
