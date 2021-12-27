@@ -8,7 +8,7 @@ use DateTime as PHPDateTime;
 
 final class DateTime
 {
-    private function __construct(PHPDateTime $value) {}
+    private function __construct(public readonly PHPDateTime $value) {}
 
     // -------- private functions --------
 
