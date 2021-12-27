@@ -13,7 +13,7 @@ jobs:
       - name: setup docker
         run: |
           cd ./delivery-docker
-          docker-compose up api -d
+          docker-compose up -d api
 
       - name: cache api vendor
         id: api-cache
