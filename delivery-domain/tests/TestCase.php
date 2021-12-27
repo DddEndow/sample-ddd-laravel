@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 namespace Delivery\Domain\Tests;
 
-use \Orchestra\Testbench\TestCase as OrchestraTestCase;
+use Delivery\Domain\DeliveryDomainServiceProvider;
+use Orchestra\Testbench\TestCase as OrchestraTestCase;
 
 class TestCase extends OrchestraTestCase
 {
@@ -17,7 +18,7 @@ class TestCase extends OrchestraTestCase
     protected function getPackageProviders($app)
     {
         return [
-            //
+            DeliveryDomainServiceProvider::class,
         ];
     }
 
