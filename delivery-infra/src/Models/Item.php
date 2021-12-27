@@ -8,6 +8,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
+/**
+ * @property string item_id
+ * @property string name
+ * @property int price
+ */
 class Item extends Model
 {
     use HasFactory;
