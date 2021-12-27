@@ -8,6 +8,6 @@ echo "Start to testing delivery-api..."
 echo "+++++++++++++++++++++++++++++++++++++++"
 
 if [ ! -e ../delivery-api/vendor ]; then
-  TMPDIR=/private$TMPDIR docker-compose run --rm delivery-api composer install --no-progress --no-suggest
+  TMPDIR=/private$TMPDIR docker-compose run --rm api composer install --no-progress --no-suggest
 fi
-TMPDIR=/private$TMPDIR docker-compose run -e XDEBUG_MODE=off --rm delivery-api php artisan test
+TMPDIR=/private$TMPDIR docker-compose run -e XDEBUG_MODE=off --rm api php artisan test

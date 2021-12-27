@@ -7,4 +7,4 @@ echo "+++++++++++++++++++++++++++++++++++++++"
 echo "Start to connect to database..."
 echo "+++++++++++++++++++++++++++++++++++++++"
 
-TMPDIR=/private$TMPDIR docker-compose exec delivery-db mysql -u root delivery_db
+TMPDIR=/private$TMPDIR docker-compose exec db mysql -u root delivery_db

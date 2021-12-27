@@ -1,7 +1,7 @@
 version: "3.7"
 
 services:
-  delivery-api:
+  api:
     build:
       context: .
       dockerfile: ./delivery-api/Dockerfile
@@ -16,10 +16,10 @@ services:
     ports:
       - 15280:80
     depends_on:
-      - delivery-db
+      - db
 #      - delivery-redis
 
-  delivery-db:
+  db:
     image: mysql:5.7
     volumes:
       - ./mysql/initdb.d:/docker-entrypoint-initdb.d
