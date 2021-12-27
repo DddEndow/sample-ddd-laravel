@@ -7,6 +7,14 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: copy env
+        run: sh -c "cd ./delivery-api; cp .env.example .env"
+
+      - name: setup docker
+        run: |
+          cd ./delivery-docker
+          docker-compose up -d
+
       - name: cache api vendor
         id: api-cache
         uses: actions/cache@v1
@@ -17,14 +25,10 @@ jobs:
             ${{ runner.os }}-composer-
       - name: composer install
         if: steps.cache.outputs.cache-hit != 'true'
-        run: sh -c "cd ./delivery-api; composer install -n --prefer-dist"
-
-      - name: copy env
-        run: cp .env.example .env
+        run: docker-compose run --rm api composer install -n --prefer-dist
 
       - name: generate key
         run: php artisan key:generate
-
       - name: UnitTest
         run: |
           php artisan test
