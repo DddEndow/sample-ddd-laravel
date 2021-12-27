@@ -7,12 +7,32 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: copy env
+        run: sh -c "cd ./delivery-api; cp .env.example .env"
+
       - name: setup docker
         working-directory: ./delivery-docker
         run: docker-compose up -d
 
-      - name: cache infra vendor
+      - name: cache api vendor
         id: api-cache
+        uses: actions/cache@v1
+        with:
+          path: ./deliver-api/vendor
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-composer-
+      - name: api composer install
+        if: steps.cache.outputs.cache-hit != 'true'
+        working-directory: ./delivery-docker
+        run: docker-compose run --rm api composer install -n --no-progress --no-suggest
+
+      - name: generate key
+        working-directory: ./delivery-docker
+        run: docker-compose run --rm api php artisan key:generate
+
+      - name: cache infra vendor
+        id: infra-cache
         uses: actions/cache@v1
         with:
           path: ./deliver-infra/vendor
@@ -24,8 +44,7 @@ jobs:
         working-directory: ./delivery-docker
         run: docker-compose run --rm api bash -c "cd ../packages/delivery-infra && composer install -n --no-progress --no-suggest"
 
-      - name: infra composer install
-        if: steps.cache.outputs.cache-hit != 'true'
+      - name: maigrate test db
         working-directory: ./delivery-docker
         run: docker-compose run --rm api php artisan migrate --database testing
 
