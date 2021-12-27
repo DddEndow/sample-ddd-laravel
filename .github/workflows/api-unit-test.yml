@@ -7,10 +7,24 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: SetUp
-        run: |
-          sh ./delivery-tools/docker-up.sh
+      - name: cache api vendor
+        id: api-cache
+        uses: actions/cache@v1
+        with:
+          path: ./deliver-ap/ivendor
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-composer-
+      - name: composer install
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: sh -c "cd ./delivery-api; composer install -n --prefer-dist"
+
+      - name: copy env
+        run: cp .env.example .env
+
+      - name: generate key
+        run: php artisan key:generate
+
       - name: UnitTest
         run: |
-          sh ./delivery-tools/delivery-api-test.sh
-          sh ./delivery-tools/delivery-domain-test.sh
+          php artisan test
