@@ -22,7 +22,10 @@ class DeliveryInfraServiceProvider extends ServiceProvider
             return 'Delivery\\Infra\\Database\\Factories\\' . class_basename($modelName) . 'Factory';
         });
 
-
+        $this->app->bind(
+            \Delivery\Domain\Entity\Item\ItemRepository::class,
+            \Delivery\Infra\Repositories\Item\ItemEloquentRepository::class
+        );
     }
 
     /**
