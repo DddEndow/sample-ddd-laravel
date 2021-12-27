@@ -15,4 +15,4 @@ if [ ! -e ../delivery-domain/vendor/autoload.php ]; then
   TMPDIR=/private$TMPDIR docker-compose run --rm api bash -c "cd ../packages/delivery-domain && composer dump-autoload"
 fi
 
-TMPDIR=/private$TMPDIR docker-compose run --rm api bash -c "cd ../packages/delivery-domain && ./vendor/bin/phpunit"
+TMPDIR=/private$TMPDIR docker-compose run --rm api bash -c "cd ../packages/delivery-domain && ./vendor/bin/phpunit --testdox"

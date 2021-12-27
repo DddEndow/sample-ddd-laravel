@@ -1,0 +1,53 @@
+on:
+  pull_request:
+name: api-unit-test
+jobs:
+  CI:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: copy env
+        run: sh -c "cd ./delivery-api; cp .env.example .env"
+
+      - name: setup docker
+        working-directory: ./delivery-docker
+        run: docker-compose up -d api
+
+      - name: cache api vendor
+        id: api-cache
+        uses: actions/cache@v1
+        with:
+          path: ./deliver-api/vendor
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-composer-
+      - name: api composer install
+        if: steps.cache.outputs.cache-hit != 'true'
+        working-directory: ./delivery-docker
+        run: docker-compose run --rm api composer install -n --no-progress --no-suggest
+
+      - name: generate key
+        working-directory: ./delivery-docker
+        run: docker-compose run --rm api php artisan key:generate
+
+      - name: api unit test
+        working-directory: ./delivery-docker
+        run: docker-compose run -e XDEBUG_MODE=off --rm api php artisan test
+
+      - name: cache domain vendor
+        id: domain-cache
+        uses: actions/cache@v1
+        with:
+          path: ./deliver-domain/vendor
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-composer-
+      - name: domain composer install
+        if: steps.cache.outputs.cache-hit != 'true'
+        working-directory: ./delivery-docker
+        run: docker-compose run --rm api bash -c "cd ../packages/delivery-domain && composer install -n --no-progress --no-suggest"
+
+      - name: domain unit test
+        working-directory: ./delivery-docker
+        run: docker-compose run --rm api bash -c "cd ../packages/delivery-domain && ./vendor/bin/phpunit --testdox"

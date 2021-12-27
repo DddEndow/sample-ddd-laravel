@@ -1,8 +1,9 @@
 <?php
 
-namespace Delivery\Infra\Tests\Unit\Repsirotires\Eloquent\Item;
+namespace Delivery\Infra\Tests\Unit\Repositories\Eloquent\Item;
 
 use Delivery\Domain\Entity\Shared\Name;
+use Delivery\Infra\Models\Item;
 use Delivery\Infra\Repositories\Item\ItemEloquentRepository;
 use Delivery\Infra\Tests\DataCreators\ItemDataCreator;
 use Delivery\Infra\Tests\TestCase;
@@ -23,7 +24,7 @@ class ItemEloquentRepositoryTest extends TestCase
         parent::setUp();
     }
 
-    public function test_example(): void
+    public function test_Itemの配列を全て取得できること(): void
     {
         // given:
         $item1 = $this->itemDataCreator->create(Name::of('item1 name'), 100);
