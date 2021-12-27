@@ -9,7 +9,7 @@ jobs:
 
       - name: setup docker
         working-directory: ./delivery-docker
-        run: docker-compose up -d db
+        run: docker-compose up -d
 
       - name: cache infra vendor
         id: api-cache
@@ -26,4 +26,4 @@ jobs:
 
       - name: domain unit test
         working-directory: ./delivery-docker
-        run: ddocker-compose run --rm api bash -c "cd ../packages/delivery-infra && ./vendor/bin/phpunit --testdox"
+        run: docker-compose run --rm api bash -c "cd ../packages/delivery-infra && ./vendor/bin/phpunit --testdox"
