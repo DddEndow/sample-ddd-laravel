@@ -13,7 +13,8 @@ class TestCase extends OrchestraTestCase
     {
         parent::setUp();
 
-        $this->artisan('migrate', ['--database' => 'testbench'])->run();
+        // transaction周りのバグでrollbackできずに落ちるのでテストを開始する前に実行する
+//        $this->artisan('migrate', ['--database' => 'testbench'])->run();
     }
 
     protected function getPackageProviders($app)

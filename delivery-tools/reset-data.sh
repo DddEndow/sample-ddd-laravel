@@ -8,6 +8,7 @@ echo "Start to refresh database with DDL..."
 echo "+++++++++++++++++++++++++++++++++++++++"
 
 TMPDIR=/private$TMPDIR docker-compose run --rm api php artisan migrate:refresh
+TMPDIR=/private$TMPDIR docker-compose run --rm api php artisan migrate:refresh --database testing
 
 echo "+++++++++++++++++++++++++++++++++++++++"
 echo "Start to seed data"

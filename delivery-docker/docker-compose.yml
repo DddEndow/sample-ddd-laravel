@@ -16,7 +16,8 @@ services:
     ports:
       - 15280:80
     depends_on:
-      - db
+      db:
+        condition: service_healthy
 #      - delivery-redis
 
   db:
@@ -31,6 +32,10 @@ services:
       - TZ=Asia/Tokyo
     ports:
       - 15306:3306
+    healthcheck:
+      test: [ "CMD", "mysqladmin" ,"ping", "-h", "localhost" ]
+      timeout: 20s
+      retries: 10
 
 #  delivery-redis:
 #    image: redis:5.0

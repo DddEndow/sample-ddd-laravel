@@ -3,6 +3,7 @@
 namespace Delivery\Infra\Tests\Unit\Repositories\Eloquent\Item;
 
 use Delivery\Domain\Entity\Shared\Name;
+use Delivery\Infra\Models\Item;
 use Delivery\Infra\Repositories\Item\ItemEloquentRepository;
 use Delivery\Infra\Tests\DataCreators\ItemDataCreator;
 use Delivery\Infra\Tests\TestCase;
