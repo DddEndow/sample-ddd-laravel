@@ -7,9 +7,23 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: SetUp
-        run: |
-          sh ./delivery-tools/docker-up.sh
-      - name: UnitTest
-        run: |
-          sh ./delivery-tools/delivery-infra-test.sh
+      - name: setup docker
+        working-directory: ./delivery-docker
+        run: docker-compose up -d db
+
+      - name: cache infra vendor
+        id: api-cache
+        uses: actions/cache@v1
+        with:
+          path: ./deliver-infra/vendor
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-composer-
+      - name: infra composer install
+        if: steps.cache.outputs.cache-hit != 'true'
+        working-directory: ./delivery-docker
+        run: docker-compose run --rm api bash -c "cd ../packages/delivery-infra && composer install -n --prefer-dist"
+
+      - name: domain unit test
+        working-directory: ./delivery-docker
+        run: ddocker-compose run --rm api bash -c "cd ../packages/delivery-infra && ./vendor/bin/phpunit --testdox"
