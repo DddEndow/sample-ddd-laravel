@@ -51,3 +51,11 @@ jobs:
       - name: domain unit test
         working-directory: ./delivery-docker
         run: docker-compose run --rm api bash -c "cd ../packages/delivery-domain && ./vendor/bin/phpunit --testdox"
+
+      - name: infra composer install
+        working-directory: ./delivery-docker
+        run: docker-compose run --rm api bash -c "cd ../packages/delivery-infra && composer install -n --prefer-dist"
+
+      - name: domain unit test
+        working-directory: ./delivery-docker
+        run: docker-compose run --rm api bash -c "cd ../packages/delivery-infra && ./vendor/bin/phpunit --testdox"
