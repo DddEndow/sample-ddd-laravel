@@ -2126,7 +2126,7 @@
             "dist": {
                 "type": "path",
                 "url": "../packages/delivery-domain",
-                "reference": "f4aa99586e4e25cb37c299349b130143374a2232"
+                "reference": "d1c8b3a7958770c22f30a162cdb706cc8a292d55"
             },
             "require": {
                 "php": "^8.1",
@@ -2145,12 +2145,12 @@
             },
             "autoload": {
                 "psr-4": {
-                    "Delivery\\DeliveryDomain\\": "src/"
+                    "Delivery\\Domain\\": "src/"
                 }
             },
             "autoload-dev": {
                 "psr-4": {
-                    "Delivery\\DeliveryDomain\\Tests\\": "tests/"
+                    "Delivery\\Domain\\Tests\\": "tests/"
                 }
             },
             "license": [
@@ -2166,12 +2166,13 @@
             "dist": {
                 "type": "path",
                 "url": "../packages/delivery-infra",
-                "reference": "14d192f73569de2684d42810bbffe8f9a7f784a3"
+                "reference": "66e5726150bc1eda7f13ba70b4a45ff34d77e1a4"
             },
             "require": {
                 "illuminate/contracts": "^8.0",
                 "illuminate/database": "^8.0",
                 "illuminate/support": "^8.0",
+                "packages/delivery-domain": "dev-master",
                 "php": "^8.1",
                 "symfony/uid": "^6.0"
             },
@@ -2191,7 +2192,8 @@
             "autoload": {
                 "psr-4": {
                     "Delivery\\Infra\\": "src/",
-                    "Delivery\\Infra\\Database\\Factories\\": "database/factories/"
+                    "Delivery\\Infra\\Database\\Factories\\": "database/factories/",
+                    "Delivery\\Infra\\Database\\Seeders\\": "database/seeders/"
                 }
             },
             "autoload-dev": {
