@@ -1,6 +1,6 @@
 <?php
 
-namespace Delivery\Infra\Tests\Unit\Repsirotires\Eloquent\Item;
+namespace Delivery\Infra\Tests\Unit\Repositories\Eloquent\Item;
 
 use Delivery\Domain\Entity\Shared\Name;
 use Delivery\Infra\Repositories\Item\ItemEloquentRepository;
