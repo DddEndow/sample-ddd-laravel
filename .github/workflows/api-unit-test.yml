@@ -1,0 +1,16 @@
+on:
+  pull_request:
+name: api-unit-test
+jobs:
+  CI:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: SetUp
+        run: |
+          sh ./delivery-tools/docker-up.sh
+      - name: UnitTest
+        run: |
+          sh ./delivery-tools/delivery-api-test.sh
+          sh ./delivery-tools/delivery-domain-test.sh
