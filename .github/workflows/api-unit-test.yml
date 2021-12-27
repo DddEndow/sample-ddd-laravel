@@ -13,7 +13,7 @@ jobs:
       - name: setup docker
         run: |
           cd ./delivery-docker
-          docker-compose up -d
+          docker-compose up api -d
 
       - name: cache api vendor
         id: api-cache
@@ -28,7 +28,8 @@ jobs:
         run: docker-compose run --rm api composer install -n --prefer-dist
 
       - name: generate key
-        run: php artisan key:generate
+        run: docker-compose run --rm api php artisan key:generate
+
       - name: UnitTest
         run: |
-          php artisan test
+          docker-compose run -e XDEBUG_MODE=off --rm api php artisan test
