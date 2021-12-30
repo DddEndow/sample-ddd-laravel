@@ -6,7 +6,7 @@ namespace App\Http\Controllers\Item;
 
 use App\Http\Controllers\Controller;
 use App\Http\Views\Item\ItemListView;
-use App\UseCases\Item\ListItemsUseCase;
+use Delivery\App\UseCases\Item\ListItemsUseCase;
 
 class ItemController extends Controller
 {

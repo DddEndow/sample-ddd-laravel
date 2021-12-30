@@ -5,6 +5,7 @@
     "require": {
         "php": "^8.1",
         "packages/delivery-domain": "dev-main",
+        "packages/delivery-infra": "dev-main",
         "spatie/laravel-data": "^1.2"
     },
     "require-dev": {
@@ -28,6 +29,10 @@
         {
             "type": "path",
             "url": "../delivery-domain"
+        },
+        {
+            "type": "path",
+            "url": "../delivery-infra"
         }
     ],
     "extra": {

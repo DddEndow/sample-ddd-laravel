@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\UseCases\Item;
+namespace Delivery\App\UseCases\Item;
 
 use Delivery\Domain\Entity\Item\Item;
 use Delivery\Domain\Entity\Item\ItemRepository;
