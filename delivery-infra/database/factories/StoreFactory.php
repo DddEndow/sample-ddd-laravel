@@ -27,7 +27,7 @@ class StoreFactory extends Factory
     {
         return [
             'hub_id' => Hub::factory(),
-            'basic_information' => $this->faker->text,
+            'basic_information' => $this->faker->text(50),
             'route_code' => DeliveryRoute::factory(),
             'delivery_order' => $this->faker->randomDigitNotNull(3),
         ];
