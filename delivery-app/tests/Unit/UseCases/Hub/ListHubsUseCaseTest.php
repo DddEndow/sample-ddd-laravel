@@ -10,27 +10,18 @@ use Delivery\App\UseCases\Hub\ListHubsUseCase;
 use Delivery\Domain\Entity\ProductionFactory\ProductionFactory;
 use Delivery\Domain\Entity\Shared\Name;
 use Delivery\Domain\Entity\Store\Store;
-use Delivery\Domain\Tests\TestDataFactories\TestStoreFactory;
 use Mockery;
 use PHPUnit\Framework\TestCase;
 
 class ListHubsUseCaseTest extends TestCase
 {
-    private TestStoreFactory $testStoreFactory;
-
-    public function setUp(): void
-    {
-        $this->testStoreFactory = new TestStoreFactory();
-        parent::setUp();
-    }
-
     public function test_拠点一覧が取得できること(): void
     {
         // given:
         $productionFactory1 = ProductionFactory::create(Name::of('factory1 name'), '090-1234-5678', 100);
         $productionFactory2 = ProductionFactory::create(Name::of('factory1 name'), '090-1234-5678', 100);
         $store1 = Store::create(Name::of('store1 name'), '090-1234-5678', '店舗１');
-        $store2 = $this->testStoreFactory->create(Name::of('store2 name'));
+        $store2 = Store::create(Name::of('store2 name'), '090-1234-5678', '店舗２');
 
         $hubs = [
             $productionFactory1,
