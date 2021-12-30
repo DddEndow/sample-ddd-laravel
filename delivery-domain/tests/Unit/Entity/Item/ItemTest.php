@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace  Delivery\Domain\Tests\Unit\UseCases\Item;
+namespace  Delivery\Domain\Tests\Unit\Entity\Item;
 
 use Delivery\Domain\Entity\Item\Item;
 use Delivery\Domain\Entity\Shared\Name;
