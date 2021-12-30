@@ -7,11 +7,11 @@ echo "+++++++++++++++++++++++++++++++++++++++"
 echo "Start to testing delivery-app..."
 echo "+++++++++++++++++++++++++++++++++++++++"
 
-if [ ! -e ../delivery-domain/vendor ]; then
+if [ ! -e ../delivery-app/vendor ]; then
   TMPDIR=/private$TMPDIR docker-compose run --rm api bash -c "cd ../packages/delivery-app && composer install --no-progress --no-suggest"
 fi
 
-if [ ! -e ../delivery-domain/vendor/autoload.php ]; then
+if [ ! -e ../delivery-app/vendor/autoload.php ]; then
   TMPDIR=/private$TMPDIR docker-compose run --rm api bash -c "cd ../packages/delivery-app && composer dump-autoload"
 fi
 
