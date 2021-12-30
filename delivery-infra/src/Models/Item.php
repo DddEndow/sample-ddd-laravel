@@ -10,9 +10,12 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
- * @property string item_id
- * @property string name
- * @property int price
+ * @property string $item_id
+ * @property string $name
+ * @property int $price
+ * @property array<DeliveryDetail> $deliveryDetails
+ * @property array<ProductionDetail> $productionDetails
+ * @property array<OrderDetail> $orderDetails
  */
 class Item extends Model
 {

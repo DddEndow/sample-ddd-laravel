@@ -14,6 +14,7 @@
         "laravel/framework": "^8.75",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
+        "packages/delivery-app": "dev-main",
         "packages/delivery-domain": "dev-main",
         "packages/delivery-infra": "dev-main",
         "spatie/laravel-data": "^1.2",
@@ -57,11 +58,15 @@
     "repositories": [
         {
             "type": "path",
-            "url": "../packages/delivery-infra"
+            "url": "../packages/delivery-app"
         },
         {
             "type": "path",
             "url": "../packages/delivery-domain"
+        },
+        {
+            "type": "path",
+            "url": "../packages/delivery-infra"
         }
     ],
     "extra": {

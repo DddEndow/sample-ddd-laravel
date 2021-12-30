@@ -1,15 +1,11 @@
 {
-    "name": "packages/delivery-infra",
+    "name": "packages/delivery-app",
     "type": "library",
     "license": "MIT",
     "require": {
         "php": "^8.1",
-        "illuminate/contracts": "^8.0",
-        "illuminate/database": "^8.0",
-        "illuminate/support": "^8.0",
-        "packages/delivery-app": "dev-main",
         "packages/delivery-domain": "dev-main",
-        "symfony/uid": "^6.0"
+        "spatie/laravel-data": "^1.2"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
@@ -19,22 +15,16 @@
     },
     "autoload": {
         "psr-4": {
-            "Delivery\\Infra\\": "src/",
-            "Delivery\\Infra\\Database\\Factories\\": "database/factories/",
-            "Delivery\\Infra\\Database\\Seeders\\": "database/seeders/"
+            "Delivery\\App\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Delivery\\Infra\\Tests\\": "tests/"
+            "Delivery\\App\\Tests\\": "tests/"
         }
     },
     "scripts": {},
     "repositories": [
-        {
-            "type": "path",
-            "url": "../delivery-app"
-        },
         {
             "type": "path",
             "url": "../delivery-domain"
@@ -43,7 +33,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Delivery\\Infra\\DeliveryInfraServiceProvider"
+                "Delivery\\App\\DeliveryAppServiceProvider"
             ]
         }
     },

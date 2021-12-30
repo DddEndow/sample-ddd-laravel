@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Delivery\Infra\Database\Factories;
 
 use Delivery\Infra\Models\DeliveryRoute;
+use Delivery\Infra\Models\ProductionFactory;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Symfony\Component\Uid\Ulid;
 
@@ -27,7 +28,7 @@ class DeliveryRouteFactory extends Factory
         return [
             'route_code' => new Ulid(),
             'name' => $this->faker->company,
-            'production_factory_id' => ProductionFactoryFactory::factory()
+            'production_factory_id' => ProductionFactory::factory()
         ];
     }
 }

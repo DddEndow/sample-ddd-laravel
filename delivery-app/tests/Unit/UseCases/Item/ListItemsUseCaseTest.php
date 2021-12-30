@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace Tests\Unit\UseCases\Item;
 
-use App\UseCases\Item\ListItemsUseCase;
+use Delivery\App\UseCases\Item\ListItemsUseCase;
 use Delivery\Domain\Entity\Item\Item;
 use Delivery\Domain\Entity\Item\ItemRepository;
 use Delivery\Domain\Entity\Shared\Name;
 use Mockery;
-use Tests\TestCase;
+use PHPUnit\Framework\TestCase;
 
 class ListItemsUseCaseTest extends TestCase
 {

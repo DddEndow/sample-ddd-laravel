@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 namespace Delivery\Infra\Database\Factories;
 
-use Delivery\Infra\Models\Production;
+use Delivery\Infra\Models\Hub;
+use Delivery\Infra\Models\ProductionFactory;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ProductionFactoryFactory extends Factory
@@ -14,7 +15,7 @@ class ProductionFactoryFactory extends Factory
      *
      * @var string
      */
-    protected $model = Production::class;
+    protected $model = ProductionFactory::class;
 
     /**
      * Define the model's default state.
@@ -24,7 +25,7 @@ class ProductionFactoryFactory extends Factory
     public function definition()
     {
         return [
-            'hub_id' => HubFactory::factory(),
+            'hub_id' => Hub::factory(),
             'capacity' => $this->faker->randomDigitNotNull(3),
         ];
     }
