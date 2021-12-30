@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace  Delivery\Domain\Tests\Unit\UseCases\ProductionFactory;
+namespace  Delivery\Domain\Tests\Unit\Eentity\ProductionFactory;
 
 use Delivery\Domain\Entity\ProductionFactory\ProductionFactory;
 use Delivery\Domain\Entity\Shared\Name;

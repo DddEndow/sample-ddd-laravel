@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace  Delivery\Domain\Tests\Unit\UseCases\Shared;
+namespace  Delivery\Domain\Tests\Unit\Entity\Shared;
 
 use Delivery\Domain\Entity\Shared\Name;
 use Delivery\Domain\Exceptions\DomainException;
