@@ -7,6 +7,7 @@
         "illuminate/contracts": "^8.0",
         "illuminate/database": "^8.0",
         "illuminate/support": "^8.0",
+        "packages/delivery-app": "dev-main",
         "packages/delivery-domain": "dev-main",
         "symfony/uid": "^6.0"
     },
@@ -30,6 +31,10 @@
     },
     "scripts": {},
     "repositories": [
+        {
+            "type": "path",
+            "url": "../delivery-app"
+        },
         {
             "type": "path",
             "url": "../delivery-domain"
