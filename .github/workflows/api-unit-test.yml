@@ -35,6 +35,23 @@ jobs:
         working-directory: ./delivery-docker
         run: docker-compose run -e XDEBUG_MODE=off --rm api php artisan test
 
+      - name: cache app vendor
+        id: app-cache
+        uses: actions/cache@v1
+        with:
+          path: ./deliver-app/vendor
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-composer-
+      - name: app composer install
+        if: steps.cache.outputs.cache-hit != 'true'
+        working-directory: ./delivery-docker
+        run: docker-compose run --rm api bash -c "cd ../packages/delivery-app && composer install -n --no-progress --no-suggest"
+
+      - name: app unit test
+        working-directory: ./delivery-docker
+        run: docker-compose run --rm api bash -c "cd ../packages/delivery-app && ./vendor/bin/phpunit --testdox"
+
       - name: cache domain vendor
         id: domain-cache
         uses: actions/cache@v1
