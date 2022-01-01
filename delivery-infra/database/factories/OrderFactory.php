@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Delivery\Infra\Database\Factories;
 
 use Delivery\Infra\Models\Order;
+use Delivery\Infra\Models\Store;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Symfony\Component\Uid\Ulid;
 
@@ -26,7 +27,7 @@ class OrderFactory extends Factory
     {
         return [
             'order_id' => new Ulid(),
-            'store_id' => StoreFactory::factory(),
+            'store_id' => Store::factory(),
             'registration_order_datetime' => $this->faker->dateTime,
             'scheduled_delivery_datetime' => $this->faker->dateTime,
         ];
