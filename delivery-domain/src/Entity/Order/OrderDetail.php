@@ -13,8 +13,8 @@ class OrderDetail
     private function __construct(
         public readonly OrderDetailId $orderDetailId,
         public readonly ItemId $itemId,
-        public readonly ProductionId $productionId,
-        public readonly DeliveryId $deliveryId,
+        public readonly ?ProductionId $productionId,
+        public readonly ?DeliveryId $deliveryId,
         public readonly int $quantity
     ) {}
 
@@ -24,15 +24,13 @@ class OrderDetail
 
     static public function create(
         ItemId $itemId,
-        ProductionId $productionId,
-        DeliveryId $deliveryId,
         int $quantity
     ): OrderDetail {
         return new OrderDetail(
             orderDetailId: OrderDetailId::gen(),
             itemId: $itemId,
-            productionId: $productionId,
-            deliveryId: $deliveryId,
+            productionId: null,
+            deliveryId: null,
             quantity: $quantity
         );
     }
@@ -40,15 +38,15 @@ class OrderDetail
     static public function reconstruct(
         string $orderDetailId,
         string $itemId,
-        string $productionId,
-        string $deliveryId,
+        ?string $productionId,
+        ?string $deliveryId,
         int $quantity
     ): OrderDetail {
         return new OrderDetail(
             orderDetailId: OrderDetailId::from($orderDetailId),
             itemId: ItemId::from($itemId),
-            productionId: ProductionId::from($productionId),
-            deliveryId: DeliveryId::from($deliveryId),
+            productionId: $productionId ? ProductionId::from($productionId) : null,
+            deliveryId: $deliveryId ? DeliveryId::from($deliveryId) : null,
             quantity: $quantity
         );
     }

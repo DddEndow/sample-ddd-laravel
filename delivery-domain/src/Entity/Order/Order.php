@@ -25,15 +25,13 @@ class Order
     static public function create(
         StoreId $orderedStoreId,
         DateTime $registrationOrderDatetime,
-        /** @var OrderDetail[] */
-        array $orderDetails
     ): Order {
         return new Order(
             orderId: OrderId::gen(),
             orderedStoreId: $orderedStoreId,
             registrationOrderDatetime: $registrationOrderDatetime,
             scheduledDeliveryDatetime: null,
-            orderDetails: $orderDetails
+            orderDetails: []
         );
     }
 
