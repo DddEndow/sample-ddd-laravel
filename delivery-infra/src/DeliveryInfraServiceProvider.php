@@ -29,6 +29,11 @@ class DeliveryInfraServiceProvider extends ServiceProvider
             \Delivery\Infra\Repositories\Item\ItemEloquentRepository::class
         );
 
+        $this->app->bind(
+            \Delivery\Domain\Entity\Order\OrderRepository::class,
+            \Delivery\Infra\Repositories\Order\OrderEloquentRepository::class
+        );
+
         # ---- QueryService ----
 
         $this->app->bind(
