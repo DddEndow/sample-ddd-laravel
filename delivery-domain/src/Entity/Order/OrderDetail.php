@@ -36,17 +36,17 @@ class OrderDetail
     }
 
     static public function reconstruct(
-        string $orderDetailId,
-        string $itemId,
-        ?string $productionId,
-        ?string $deliveryId,
+        OrderDetailId $orderDetailId,
+        ItemId $itemId,
+        ?ProductionId $productionId,
+        ?DeliveryId $deliveryId,
         int $quantity
     ): OrderDetail {
         return new OrderDetail(
-            orderDetailId: OrderDetailId::from($orderDetailId),
-            itemId: ItemId::from($itemId),
-            productionId: $productionId ? ProductionId::from($productionId) : null,
-            deliveryId: $deliveryId ? DeliveryId::from($deliveryId) : null,
+            orderDetailId: $orderDetailId,
+            itemId: $itemId,
+            productionId: $productionId,
+            deliveryId: $deliveryId,
             quantity: $quantity
         );
     }
