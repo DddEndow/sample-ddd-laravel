@@ -18,6 +18,7 @@ final class DeliveryInfraDatabaseSeeder extends Seeder
         $this->call([
             ItemSeeder::class,
             HubSeeder::class,
+            OrderSeeder::class,
         ]);
     }
 }
