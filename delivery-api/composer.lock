@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "08d9d33313129419a5b16cd1a34ee3b8",
+    "content-hash": "d0a70bb2cfa41bdb1a1a94d9fe1e38d3",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2125,12 +2125,11 @@
             "version": "dev-main",
             "dist": {
                 "type": "path",
-                "url": "../packages/delivery-app",
-                "reference": "fffea6264166df6636af3222d3ee7ef4b9b38584"
+                "url": "packages/delivery-app",
+                "reference": "42ee91ca46a49ab930ac8551e369bde0ea50a2c5"
             },
             "require": {
                 "packages/delivery-domain": "dev-main",
-                "packages/delivery-infra": "dev-main",
                 "php": "^8.1",
                 "spatie/laravel-data": "^1.2"
             },
@@ -2170,7 +2169,7 @@
             "version": "dev-main",
             "dist": {
                 "type": "path",
-                "url": "../packages/delivery-domain",
+                "url": "packages/delivery-domain",
                 "reference": "72f9495f487cfe64939a2c15bbbb823a7e5ce072"
             },
             "require": {
@@ -2213,13 +2212,14 @@
             "version": "dev-main",
             "dist": {
                 "type": "path",
-                "url": "../packages/delivery-infra",
-                "reference": "77ca6b6d20dcf2978cc78467e6379944ce40b532"
+                "url": "packages/delivery-infra",
+                "reference": "e744210bfc69675bd47b8f0ef222716c3231175d"
             },
             "require": {
                 "illuminate/contracts": "^8.0",
                 "illuminate/database": "^8.0",
                 "illuminate/support": "^8.0",
+                "packages/delivery-app": "dev-main",
                 "packages/delivery-domain": "dev-main",
                 "php": "^8.1",
                 "symfony/uid": "^6.0"
