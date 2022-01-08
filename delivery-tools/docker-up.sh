@@ -24,15 +24,15 @@ if [ ! -e ../delivery-api/vendor ]; then
 fi
 
 if [ ! -e ../delivery-app/vendor ]; then
-  TMPDIR=/private$TMPDIR docker-compose run --rm api bash -c "cd ../packages/delivery-app && composer install --no-progress --no-suggest"
+  TMPDIR=/private$TMPDIR docker-compose run --rm api bash -c "cd packages/delivery-app && composer install --no-progress --no-suggest"
 fi
 
 if [ ! -e ../delivery-domain/vendor ]; then
-  TMPDIR=/private$TMPDIR docker-compose run --rm api bash -c "cd ../packages/delivery-domain && composer install --no-progress --no-suggest"
+  TMPDIR=/private$TMPDIR docker-compose run --rm api bash -c "cd packages/delivery-domain && composer install --no-progress --no-suggest"
 fi
 
 if [ ! -e ../delivery-infra/vendor ]; then
-  TMPDIR=/private$TMPDIR docker-compose run --rm api bash -c "cd ../packages/delivery-infra && composer install --no-progress --no-suggest"
+  TMPDIR=/private$TMPDIR docker-compose run --rm api bash -c "cd packages/delivery-infra && composer install --no-progress --no-suggest"
 fi
 
 TMPDIR=/private$TMPDIR docker-compose run --rm api php artisan key:generate

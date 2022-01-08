@@ -42,7 +42,7 @@ jobs:
       - name: infra composer install
         if: steps.cache.outputs.cache-hit != 'true'
         working-directory: ./delivery-docker
-        run: docker-compose run --rm api bash -c "cd ../packages/delivery-infra && composer install -n --no-progress --no-suggest"
+        run: docker-compose run --rm api bash -c "cd packages/delivery-infra && composer install -n --no-progress --no-suggest"
 
       - name: maigrate test db
         working-directory: ./delivery-docker
@@ -50,4 +50,4 @@ jobs:
 
       - name: domain unit test
         working-directory: ./delivery-docker
-        run: docker-compose run --rm api bash -c "cd ../packages/delivery-infra && ./vendor/bin/phpunit --testdox"
+        run: docker-compose run --rm api bash -c "cd packages/delivery-infra && ./vendor/bin/phpunit --testdox"
