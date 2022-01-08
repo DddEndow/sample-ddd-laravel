@@ -58,15 +58,15 @@
     "repositories": [
         {
             "type": "path",
-            "url": "../packages/delivery-app"
+            "url": "packages/delivery-app"
         },
         {
             "type": "path",
-            "url": "../packages/delivery-domain"
+            "url": "packages/delivery-domain"
         },
         {
             "type": "path",
-            "url": "../packages/delivery-infra"
+            "url": "packages/delivery-infra"
         }
     ],
     "extra": {
